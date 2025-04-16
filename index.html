@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Adrian's Website</title>
-    <link rel= "website icon" href=ICON.jpg>
+    <link rel= "website icon" href=images/ICON.jpg>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -69,7 +69,7 @@
 
 
     <div class="container text-center mt-5">
-        <img src="adrian profile.jpg" alt="Profile Picture" class="profile-pic">
+        <img src="images/adrian profile.jpg" alt="Profile Picture" class="profile-pic">
         <h2 class="mt-3">John Adrian M. De Mesa</h2>
         <p>Future Web Developer | DIT 2-1</p>
         <div>
@@ -82,12 +82,20 @@
     <hr class="border border-1 my-5 opacity-30">
     
     <div class="container my-5">
-        <h2 class="text mb-4">Activities / Projects</h2>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="mb-0">Activities / Projects</h2>
+            <button class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="collapse"
+                data-bs-target="#activitiesCollapse" aria-expanded="true" aria-controls="activitiesCollapse">
+                Show/Hide
+            </button>
+        </div>
 
+
+        <div class="collapse show" id="activitiesCollapse">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4">
             <div class="col ">
                 <div class="card shadow fluid h-100">
-                    <img src="card1.gif" class="card-img-top img-fluid" alt="shigure-ui-dance"
+                    <img src="images/card1.gif" class="card-img-top img-fluid" alt="shigure-ui-dance"
                         style="object-fit: cover; height: 200px;">
                     <div class="card-body">
                         <h5 class="card-title">Activity 4</h5>
@@ -99,7 +107,7 @@
 
             <div class="col">
                 <div class="card shadow h-100">
-                    <img src="card2.gif" class="card-img-top img-fluid" alt="shigure-ui-ui-shigure"
+                    <img src="images/card2.gif" class="card-img-top img-fluid" alt="shigure-ui-ui-shigure"
                         style="object-fit: cover; height: 200px;">
                     <div class="card-body">
                         <h5 class="card-title">Activity 5</h5>
@@ -110,7 +118,7 @@
 
             <div class="col">
                 <div class="card shadow h-100">
-                    <img src="card3.gif" class="card-img-top img-fluid" alt="card3"
+                    <img src="images/card3.gif" class="card-img-top img-fluid" alt="card3"
                         style="object-fit: cover; height: 200px;">
                     <div class="card-body">
                         <h5 class="card-title">Coming Soon!</h5>
@@ -132,6 +140,18 @@
             const html = document.documentElement;
             const currentTheme = html.getAttribute("data-bs-theme");
             html.setAttribute("data-bs-theme", currentTheme === "dark" ? "light" : "dark");
+        }
+    </script>
+    <script>
+        function toggleProjectsText() {
+            const btn = document.getElementById('toggleProjectsBtn');
+            const projects = document.getElementById('activitiesCollapse');
+
+            if (projects.classList.contains('show')) {
+                btn.textContent = 'Show Projects';
+            } else {
+                btn.textContent = 'Hide Projects';
+            }
         }
     </script>
 
