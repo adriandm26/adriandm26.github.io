@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Kyoto!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #eaf5ec;
+        }
+
+        .card-img-top {
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">Kyoto, Japan</span>
+            <a href="../index.html" class="btn btn-outline-light">Home</a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="card shadow">
+            <img src="KyotoImages/Kyoto.jpg" class="d-block w-100" style="height: 750px; object-fit: cover;"
+                alt="Kyoto GIF">
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Discover the Charm of Kyoto</h2>
+        <p class="lead text-center">
+            Kyoto, Japan's old imperial capital, charms visitors with its ancient temples, serene gardens, and lasting
+            traditions. From refined geisha districts to grand shrines, Kyoto's every corner speaks of eternal beauty
+            and cultural depth.
+
+        <div class="row">
+            <div class="col-md-6 col-lg-3 my-3">
+                <div class="card h-100 shadow">
+                    <img src="KyotoImages/fushimi.jpg" class="card-img-top" alt="Fushimi Inari Shrine">
+                    <div class="card-body">
+                        <h5 class="card-title">Fushimi Inari Shrine</h5>
+                        <p class="card-text">Walk through thousands of iconic red torii gates stretching into the
+                            forested hills.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 my-3">
+                <div class="card h-100 shadow">
+                    <img src="KyotoImages/kinkakuji.jpg" class="card-img-top" alt="Kinkaku-ji">
+                    <div class="card-body">
+                        <h5 class="card-title">Kinkaku-ji</h5>
+                        <p class="card-text">Marvel at the Golden Pavilion, a Zen temple covered in gold leaf and set
+                            beside a mirror pond.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 my-3">
+                <div class="card h-100 shadow">
+                    <img src="KyotoImages/arashiyama.jpg" class="card-img-top" alt="Arashiyama Bamboo Grove">
+                    <div class="card-body">
+                        <h5 class="card-title">Arashiyama Bamboo Grove</h5>
+                        <p class="card-text">Stroll through a magical path lined with towering green bamboo stalks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 my-3">
+                <div class="card h-100 shadow">
+                    <img src="KyotoImages/giondistrict.jpg" class="card-img-top" alt="Gion District">
+                    <div class="card-body">
+                        <h5 class="card-title">Gion District</h5>
+                        <p class="card-text">Explore Kyoto’s famous geisha district with its traditional wooden machiya
+                            houses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="bg-dark py-3 mt-5">
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

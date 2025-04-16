@@ -1,0 +1,72 @@
+.hero-section {
+    background-image: url('images/lightdark.png');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 0;
+    color: white;
+    margin-bottom: 30px; 
+}
+
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    color: white;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card:hover .card-img-overlay {
+    opacity: 1;
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.region-title {
+    padding: 2rem 0 1rem;
+    text-align: center;
+}
+
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    color: #ffffff;
+    font-weight: 500;
+    margin: 0 20px;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link.active {
+    color: #f8f9fa;
+}
+
+.navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #f8f9fa;
+}
