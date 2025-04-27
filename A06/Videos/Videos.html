@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Videos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <script>
+    function hideCameraCon() {
+      var albumContent = document.getElementById("container-row");
+      albumContent.style.display = "none";
+
+      var hideBtn = document.getElementById("hideBtn1");
+      hideBtn.style.display = "none";
+
+      var showBtn = document.getElementById("showBtn1");
+      showBtn.style.display = "inline-block";
+    }
+
+    function showCameraCon() {
+      var albumContent = document.getElementById("container-row");
+      albumContent.style.display = "flex";
+
+      var hideBtn = document.getElementById("hideBtn1");
+      hideBtn.style.display = "inline-block";
+
+      var showBtn = document.getElementById("showBtn1");
+      showBtn.style.display = "none";
+    }
+
+    function hideClipsCon() {
+      var albumContent = document.getElementById("container-row2");
+      albumContent.style.display = "none";
+
+      var hideBtn = document.getElementById("hideBtn2");
+      hideBtn.style.display = "none";
+
+      var showBtn = document.getElementById("showBtn2");
+      showBtn.style.display = "inline-block";
+    }
+
+    function showClipsCon() {
+      var albumContent = document.getElementById("container-row2");
+      albumContent.style.display = "flex";
+
+      var hideBtn = document.getElementById("hideBtn2");
+      hideBtn.style.display = "inline-block";
+
+      var showBtn = document.getElementById("showBtn2");
+      showBtn.style.display = "none";
+    }
+
+    function contactMouseEnter() {
+      var contactsCard = document.getElementById("contactsCard");
+      contactsCard.style.backgroundColor = "#E6D0EC";  // Light pastel purple
+      contactsCard.style.color = "#4B2C5E";  // Deep purple
+      contactsCard.classList.add("shadow");
+    }
+
+    function contactMouseLeave() {
+      var contactsCard = document.getElementById("contactsCard");
+      contactsCard.style.backgroundColor = "#C0A4D1";  // Softer lavender
+      contactsCard.style.color = "white";
+      contactsCard.classList.remove("shadow");
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #F2E6F7; /* Light pastel purple background */
+    }
+
+    .banner {
+      background-color: #B5A0D4; /* Pastel purple for banner */
+      color: white;
+      position: relative;
+    }
+
+    .banner .back-btn {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    hr.section-divider {
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      border-width: 1px;
+      opacity: 0.5;
+      border-color: #D1B8D7;
+    }
+
+    .card-img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .card-img-overlay {
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .card:hover .card-img-overlay {
+      opacity: 1;
+    }
+
+    .btn-outline-secondary {
+      color: #7A4D96; /* Soft purple */
+      border-color: #7A4D96;
+    }
+
+    .btn-outline-secondary:hover {
+      background-color: #7A4D96; /* Soft purple */
+      border-color: #7A4D96;
+      color: white;
+    }
+
+    footer {
+      background-color: #B5A0D4; /* Soft pastel purple footer */
+    }
+  </style>
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+  <div class="banner p-4 mb-4">
+    <a href="../../index.html" class="btn btn-outline-light back-btn">Go back to mainpage</a>
+    <div class="display-3 text-center">Gallery</div>
+  </div>
+
+  <div class="dropdown mx-3 mb-4">
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      Videos
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="../Gallery.html">Pictures</a></li>
+      <li><a class="dropdown-item" href="../Downloads/downloads.html">Downloads</a></li>
+    </ul>
+  </div>
+
+  <div class="container my-3" id="1stcon">
+    <div class="row">
+      <div class="col">
+        <h4>Camera</h4>
+        <hr class="mt-2 mb-3" style="border: 1px solid #D1B8D7;">
+      </div>
+      <div class="col-auto">
+        <button id="hideBtn1" class="btn btn-sm btn-outline-secondary mt-2" onclick="hideCameraCon()">Hide</button>
+        <button id="showBtn1" class="btn btn-sm btn-outline-secondary mt-2" onclick="showCameraCon()"
+          style="display: none;">Show</button>
+      </div>
+    </div>
+    <div class="row" id="container-row">
+    </div>
+  </div>
+
+  <hr class="section-divider container">
+
+  <div class="container my-3" id="2ndcon">
+    <div class="row">
+      <div class="col">
+        <h4>Valorant Clips</h4>
+        <hr class="mt-2 mb-3" style="border: 1px solid #D1B8D7;">
+      </div>
+      <div class="col-auto">
+        <button id="hideBtn2" class="btn btn-sm btn-outline-secondary mt-2" onclick="hideClipsCon()">Hide</button>
+        <button id="showBtn2" class="btn btn-sm btn-outline-secondary mt-2" onclick="showClipsCon()"
+          style="display: none;">Show</button>
+      </div>
+    </div>
+    <div class="row" id="container-row2">
+    </div>
+  </div>
+
+  <footer class="text-white py-4 mt-auto">
+    <div class="container text-center">
+      <div onmouseover="contactMouseEnter()" onmouseleave="contactMouseLeave()" id="contactsCard"
+        class="card rounded-5 mx-auto" style="max-width: 600px; background-color: #B5A0D4; color: white;">
+        <h5 class="card-title">Contacts</h5>
+        <p class="card-text" style="margin-bottom: 5px;">Email: johnadriandm@gmail.com</p>
+        <p class="card-text" style="margin-bottom: 5px;">GitHub: github.com/adriandm26</p>
+        <p class="card-text" style="margin-bottom: 5px;">Facebook: John Adrian De Mesa</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var cameraTitles = ["Majayjay", "Sanjuan", "Tagaytay"];
+    var cameraPictures = ["Majayjay.mp4", "SanJuan.mp4", "Vid1.mp4"];
+    var cameraContents = ["", "", ""];
+
+    var clipsTitles = ["Clip1", "Clip2"];
+    var clipsPictures = ["Clip1.mp4", "Clip2.mp4", "abstract.jpg"];
+    var clipsContents = ["", "", ""];
+
+    var cameraRowElement = document.getElementById("container-row");
+    for (var i = 0; i < cameraTitles.length; i++) {
+      cameraRowElement.innerHTML += '<div class="col-12 col-sm-6 col-md-4 col-lg-4 my-2 p-2 gallery-card"><div class="card" style="width: 100%;"><video class="card-img-top" muted loop controls><source src="vid/' + cameraPictures[i] + '" type="video/mp4">Your browser does not support the video tag.</video><div class="card-body"><h5 class="card-title">' + cameraTitles[i] + '</h5><p class="card-text">' + cameraContents[i] + '</p></div></div></div>';
+    }
+
+    var clipsRowElement = document.getElementById("container-row2");
+    for (var i = 0; i < clipsTitles.length; i++) {
+      clipsRowElement.innerHTML += '<div class="col-12 col-sm-6 col-md-4 col-lg-4 my-2 p-2 gallery-card"><div class="card" style="width: 100%;"><video class="card-img-top" muted loop controls><source src="vid/' + clipsPictures[i] + '" type="video/mp4">Your browser does not support the video tag.</video><div class="card-body"><h5 class="card-title">' + clipsTitles[i] + '</h5><p class="card-text">' + clipsContents[i] + '</p></div></div></div>';
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
