@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Valorant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('img/Valo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: rgb(58, 58, 58);
+        }
+
+        .navbar {
+            background-color: rgba(14, 1, 1, 0.7);
+        }
+
+        .navbar h2,
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #ed1c24 !important;
+        }
+
+        .navbar-nav .dropdown-menu .dropdown-item {
+            color: white;
+        }
+
+        .navbar-nav .dropdown-menu .dropdown-item:hover {
+            background-color: #ed1c24;
+            color: white;
+        }
+
+        .card.bg-dark-gun {
+            background-color: rgba(0, 0, 0, 0.6);
+            border: none;
+        }
+
+        .card.bg-dark-gun img {
+            max-height: 100px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid py-3 mx-3">
+            <h2>Valorant | Guns</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="Valorant.html">Home</a>
+                </li>
+                <span class="mx-2 text-white">|</span>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
+                    <ul class="dropdown-menu dropdown-menu-end bg-dark">
+                        <li><a class="dropdown-item text-white" href="Guns.html">Guns</a></li>
+                        <li><a class="dropdown-item text-white" href="../index.html">Homepage</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <h2 class="mb-4 text-white">Available Guns</h2>
+        <div class="row" id="gunsContainer"></div>
+    </div>
+
+    <script>
+        async function loadGuns() {
+            const res = await fetch("https://valorant-api.com/v1/weapons");
+            const data = await res.json();
+            const guns = data.data;
+
+            guns.forEach(function (gun) {
+                const { displayIcon: image, displayName: name } = gun;
+
+                const gunsContainer = `
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="card p-3 shadow text-center text-white bg-dark-gun">
+                            <img src="${image}" alt="${name}">
+                            <h5 class="mt-2">${name}</h5>
+                        </div>
+                    </div>
+                `;
+                document.getElementById("gunsContainer").innerHTML += gunsContainer;
+            });
+        }
+
+        loadGuns();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

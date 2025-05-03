@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Valorant</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('img/Valo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    .navbar {
+      background-color: rgba(14, 1, 1, 0.7);
+    }
+
+    .navbar h2,
+    .navbar-nav .nav-link {
+      color: white !important;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: #ed1c24 !important;
+    }
+
+    .nav-tabs .nav-link {
+      color: white;
+    }
+
+    .nav-tabs .nav-link.active {
+      background-color: #ed1c24;
+      color: white;
+    }
+
+    .picture-container {
+      width: 120px;
+      height: 120px;
+      background-color: rgb(87, 86, 86);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .picture-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .navbar-nav .dropdown-menu .dropdown-item {
+      color: white;
+    }
+
+    .navbar-nav .dropdown-menu .dropdown-item:hover {
+      background-color: #ed1c24;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid py-3 mx-3">
+      <h2>Valorant | Agents</h2>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="Valorant.html">Home</a>
+        </li>
+        <span class="mx-2 text-white">|</span>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
+          <ul class="dropdown-menu dropdown-menu-end bg-dark">
+            <li><a class="dropdown-item text-white" href="Guns.html">Guns</a></li>
+            <li><a class="dropdown-item text-white" href="../index.html">Homepage</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <ul class="nav nav-tabs" id="roleTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button"
+          role="tab">All</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="duelist-tab" data-bs-toggle="tab" data-bs-target="#Duelist" type="button"
+          role="tab">Duelist</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="initiator-tab" data-bs-toggle="tab" data-bs-target="#Initiator" type="button"
+          role="tab">Initiator</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="controller-tab" data-bs-toggle="tab" data-bs-target="#Controller" type="button"
+          role="tab">Controller</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="sentinel-tab" data-bs-toggle="tab" data-bs-target="#Sentinel" type="button"
+          role="tab">Sentinel</button>
+      </li>
+    </ul>
+
+    <div class="tab-content mt-4">
+      <div class="tab-pane fade show active" id="all" role="tabpanel">
+        <div class="row" id="All"></div>
+      </div>
+      <div class="tab-pane fade" id="Duelist" role="tabpanel">
+        <div class="row" id="Duelist"></div>
+      </div>
+      <div class="tab-pane fade" id="Initiator" role="tabpanel">
+        <div class="row" id="Initiator"></div>
+      </div>
+      <div class="tab-pane fade" id="Controller" role="tabpanel">
+        <div class="row" id="Controller"></div>
+      </div>
+      <div class="tab-pane fade" id="Sentinel" role="tabpanel">
+        <div class="row" id="Sentinel"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function loadAgents() {
+      const response = await fetch('https://valorant-api.com/v1/agents?isPlayableCharacter=true');
+      const data = await response.json();
+      const agents = data.data;
+
+      agents.forEach((agent) => {
+        var name = agent.displayName;
+        var role = agent.role ? agent.role.displayName : "Unknown";
+        var icon = agent.displayIconSmall;
+        var model = agent.fullPortrait;
+        var description = agent.description;
+
+        var ab1Icon = agent.abilities[0].displayIcon;
+        var ab1Name = agent.abilities[0].displayName;
+        var ab1Desc = agent.abilities[0].description;
+
+        var ab2Icon = agent.abilities[1].displayIcon;
+        var ab2Name = agent.abilities[1].displayName;
+        var ab2Desc = agent.abilities[1].description;
+
+        var ab3Icon = agent.abilities[2].displayIcon;
+        var ab3Name = agent.abilities[2].displayName;
+        var ab3Desc = agent.abilities[2].description;
+
+        var ultIcon = agent.abilities[3].displayIcon;
+        var ultName = agent.abilities[3].displayName;
+        var ultDesc = agent.abilities[3].description;
+
+        const allTab = `
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card my-2 text-center p-4 rounded-5 mx-auto bg-dark bg-opacity-75 text-white shadow-lg">
+              <div class="picture-container mx-auto mb-3">
+                <img src="` + icon + `" alt="` + name + `">
+              </div>
+              <div class="h5">` + name + `</div>
+              <div class="mt-1 mb-2 card rounded-5 p-2">` + role + `</div>
+            </div>
+          </div>
+        `;
+
+        const roleTabs = `
+          <div class="col-12 col-lg-10 mx-auto">
+            <div class="card my-3 p-4 rounded-4 bg-dark bg-opacity-75 text-white shadow-lg">
+              <div class="row">
+                <div class="col-md-4 text-center">
+                  <img src="` + model + `" alt="` + name + `" class="img-fluid rounded-3 mb-2">
+                  <h4>` + name + `</h4>
+                  <div class="small bg-secondary bg-opacity-50 px-2 py-1 rounded">` + role + `</div>
+                </div>
+                <div class="col-md-8">
+                  <p>` + description + `</p>
+
+                  <div class="mb-3 d-flex align-items-start gap-3">
+                    <img src="` + ab1Icon + `" alt="` + ab1Name + `" style="width:40px;height:40px;">
+                    <div>
+                      <strong>` + ab1Name + ` (Basic 1)</strong>
+                      <p class="mb-0 small">` + ab1Desc + `</p>
+                    </div>
+                  </div>
+
+                  <div class="mb-3 d-flex align-items-start gap-3">
+                    <img src="` + ab2Icon + `" alt="` + ab2Name + `" style="width:40px;height:40px;">
+                    <div>
+                      <strong>` + ab2Name + ` (Basic 2)</strong>
+                      <p class="mb-0 small">` + ab2Desc + `</p>
+                    </div>
+                  </div>
+
+                  <div class="mb-3 d-flex align-items-start gap-3">
+                    <img src="` + ab3Icon + `" alt="` + ab3Name + `" style="width:40px;height:40px;">
+                    <div>
+                      <strong>` + ab3Name + ` (Signature)</strong>
+                      <p class="mb-0 small">` + ab3Desc + `</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-start gap-3">
+                    <img src="` + ultIcon + `" alt="` + ultName + `" style="width:40px;height:40px;">
+                    <div>
+                      <strong>` + ultName + ` (Ultimate)</strong>
+                      <p class="mb-0 small">` + ultDesc + `</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        document.getElementById("All").innerHTML += allTab;
+
+        const roleContainer = document.getElementById(role);
+        if (roleContainer) {
+          roleContainer.innerHTML += roleTabs;
+        }
+      });
+    }
+
+    loadAgents();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
