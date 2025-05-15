@@ -153,58 +153,23 @@
               </div>
               <div class="h5">` + name + `</div>
               <div class="mt-1 mb-2 card rounded-5 p-2">` + role + `</div>
+              <a href="view.html?id=` + agent.uuid + ` " class="btn btn-outline-secondary rounded-5 btn-sm">View Agent</a>
             </div>
           </div>
         `;
 
         const roleTabs = `
-          <div class="col-12 col-lg-10 mx-auto">
-            <div class="card my-3 p-4 rounded-4 bg-dark bg-opacity-75 text-white shadow-lg">
-              <div class="row">
-                <div class="col-md-4 text-center">
-                  <img src="` + model + `" alt="` + name + `" class="img-fluid rounded-3 mb-2">
-                  <h4>` + name + `</h4>
-                  <div class="small bg-secondary bg-opacity-50 px-2 py-1 rounded">` + role + `</div>
-                </div>
-                <div class="col-md-8">
-                  <p>` + description + `</p>
-
-                  <div class="mb-3 d-flex align-items-start gap-3">
-                    <img src="` + ab1Icon + `" alt="` + ab1Name + `" style="width:40px;height:40px;">
-                    <div>
-                      <strong>` + ab1Name + ` (Basic 1)</strong>
-                      <p class="mb-0 small">` + ab1Desc + `</p>
-                    </div>
-                  </div>
-
-                  <div class="mb-3 d-flex align-items-start gap-3">
-                    <img src="` + ab2Icon + `" alt="` + ab2Name + `" style="width:40px;height:40px;">
-                    <div>
-                      <strong>` + ab2Name + ` (Basic 2)</strong>
-                      <p class="mb-0 small">` + ab2Desc + `</p>
-                    </div>
-                  </div>
-
-                  <div class="mb-3 d-flex align-items-start gap-3">
-                    <img src="` + ab3Icon + `" alt="` + ab3Name + `" style="width:40px;height:40px;">
-                    <div>
-                      <strong>` + ab3Name + ` (Signature)</strong>
-                      <p class="mb-0 small">` + ab3Desc + `</p>
-                    </div>
-                  </div>
-
-                  <div class="d-flex align-items-start gap-3">
-                    <img src="` + ultIcon + `" alt="` + ultName + `" style="width:40px;height:40px;">
-                    <div>
-                      <strong>` + ultName + ` (Ultimate)</strong>
-                      <p class="mb-0 small">` + ultDesc + `</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card my-2 text-center p-4 rounded-5 mx-auto bg-dark bg-opacity-75 text-white shadow-lg">
+            <div class="picture-container mx-auto mb-3">
+              <img src="` + icon + `" alt="` + name + `">
             </div>
+            <div class="h5">` + name + `</div>
+            <div class="mt-1 mb-2 card rounded-5 p-2">` + role + `</div>
+            <a href="view.html?id=` + agent.uuid + ` " class="btn btn-outline-secondary rounded-5 btn-sm">View Agent</a>
           </div>
-        `;
+        </div>
+      `;
 
         document.getElementById("All").innerHTML += allTab;
 

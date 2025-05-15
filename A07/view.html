@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Featuring Valorant</title>
+    <link rel="icon" href="img/Icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <style>
+        body {
+            background: url('img/Valo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .navbar {
+            background-color: rgba(14, 1, 1, 0.7);
+            opacity: 0.9;
+        }
+
+        .navbar h2 {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-size: 1.1rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ed1c24 !important;
+        }
+        
+         .card {
+            background-color: rgba(0, 0, 0, 0.75);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid py-3 mx-3">
+            <h2>Valorant</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Agents.html">Agents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Guns.html">Guns</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">More</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <div class="row" id="container">
+            <div class="col-12">
+                <div class="card my-2 text-center p-5 rounded-5 shadow mx-auto">
+                    <div class="picture-container ">
+                        <img src="" id="agent-img" alt="Agent Image" />
+                    </div>
+                    <h2 id="agent-name" class="mb-2"></h2>
+                    <div class="h5 mb-3" id="agent-role"></div>
+                    <p id="agent-description" class="mb-4"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6 col-lg-3 text-center">
+                <img id="ab1Icon" src="" alt="Ability 1 Icon" class="mb-2" style="width: 50px; height: 50px;" />
+                <h5 id="ab1Name" class="mb-2"></h5>
+                <p id="ab1Desc" class="mb-2"></p>
+            </div>
+
+            <div class="col-md-6 col-lg-3 text-center">
+                <img id="ab2Icon" src="" alt="Ability 2 Icon" class="mb-2" style="width: 50px; height: 50px;" />
+                <h5 id="ab2Name" class="mb-2"></h5>
+                <p id="ab2Desc" class="mb-2"></p>
+            </div>
+
+            <div class="col-md-6 col-lg-3 text-center">
+                <img id="ab3Icon" src="" alt="Ability 3 Icon" class="mb-2" style="width: 50px; height: 50px;" />
+                <h5 id="ab3Name" class="mb-2"></h5>
+                <p id="ab3Desc" class="mb-2"></p>
+            </div>
+
+            <div class="col-md-6 col-lg-3 text-center">
+                <img id="ultIcon" src="" alt="Ultimate Icon" class="mb-2" style="width: 50px; height: 50px;" />
+                <h5 id="ultName" class="mb-2"></h5>
+                <p id="ultDesc" class="mb-2"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const agentId = urlParams.get('id');
+
+        async function getAgent() {
+            const response = await fetch('https://valorant-api.com/v1/agents/' + agentId);
+            const data = await response.json();
+            const agent = data.data;
+
+            document.getElementById("agent-name").innerText = agent.displayName;
+            document.getElementById("agent-role").innerText = agent.role.displayName;
+            document.getElementById("agent-img").src = agent.displayIcon;
+            document.getElementById("agent-description").innerText = agent.description;
+
+            document.getElementById('ab1Icon').src = agent.abilities[0].displayIcon;
+            document.getElementById('ab1Name').innerText = agent.abilities[0].displayName;
+            document.getElementById('ab1Desc').innerText = agent.abilities[0].description;
+
+            document.getElementById('ab2Icon').src = agent.abilities[1].displayIcon;
+            document.getElementById('ab2Name').innerText = agent.abilities[1].displayName;
+            document.getElementById('ab2Desc').innerText = agent.abilities[1].description;
+
+            document.getElementById('ab3Icon').src = agent.abilities[2].displayIcon;
+            document.getElementById('ab3Name').innerText = agent.abilities[2].displayName;
+            document.getElementById('ab3Desc').innerText = agent.abilities[2].description;
+
+            document.getElementById('ultIcon').src = agent.abilities[3].displayIcon;
+            document.getElementById('ultName').innerText = agent.abilities[3].displayName;
+            document.getElementById('ultDesc').innerText = agent.abilities[3].description;
+        }
+
+        getAgent();
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
