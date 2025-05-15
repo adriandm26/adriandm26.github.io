@@ -121,26 +121,26 @@
             const data = await response.json();
             const agent = data.data;
 
-            document.getElementById("agent-name").innerText = agent.displayName;
-            document.getElementById("agent-role").innerText = agent.role.displayName;
+            document.getElementById("agent-name").innerHTML = agent.displayName;
+            document.getElementById("agent-role").innerHTML = agent.role.displayName;
             document.getElementById("agent-img").src = agent.displayIcon;
-            document.getElementById("agent-description").innerText = agent.description;
+            document.getElementById("agent-description").innerHTML = agent.description;
 
             document.getElementById('ab1Icon').src = agent.abilities[0].displayIcon;
-            document.getElementById('ab1Name').innerText = agent.abilities[0].displayName;
-            document.getElementById('ab1Desc').innerText = agent.abilities[0].description;
+            document.getElementById('ab1Name').innerHTML = agent.abilities[0].displayName;
+            document.getElementById('ab1Desc').innerHTML = agent.abilities[0].description;
 
             document.getElementById('ab2Icon').src = agent.abilities[1].displayIcon;
-            document.getElementById('ab2Name').innerText = agent.abilities[1].displayName;
-            document.getElementById('ab2Desc').innerText = agent.abilities[1].description;
+            document.getElementById('ab2Name').innerHTML = agent.abilities[1].displayName;
+            document.getElementById('ab2Desc').innerHTML = agent.abilities[1].description;
 
             document.getElementById('ab3Icon').src = agent.abilities[2].displayIcon;
-            document.getElementById('ab3Name').innerText = agent.abilities[2].displayName;
-            document.getElementById('ab3Desc').innerText = agent.abilities[2].description;
+            document.getElementById('ab3Name').innerHTML = agent.abilities[2].displayName;
+            document.getElementById('ab3Desc').innerHTML = agent.abilities[2].description;
 
             document.getElementById('ultIcon').src = agent.abilities[3].displayIcon;
-            document.getElementById('ultName').innerText = agent.abilities[3].displayName;
-            document.getElementById('ultDesc').innerText = agent.abilities[3].description;
+            document.getElementById('ultName').innerHTML = agent.abilities[3].displayName;
+            document.getElementById('ultDesc').innerHTML = agent.abilities[3].description;
         }
 
         getAgent();
