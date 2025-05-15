@@ -102,16 +102,16 @@
         <div class="row" id="All"></div>
       </div>
       <div class="tab-pane fade" id="Duelist" role="tabpanel">
-        <div class="row" id="Duelist"></div>
+        <div class="row" id="DuelistRow"></div>
       </div>
       <div class="tab-pane fade" id="Initiator" role="tabpanel">
-        <div class="row" id="Initiator"></div>
+        <div class="row" id="InitiatorRow"></div>
       </div>
       <div class="tab-pane fade" id="Controller" role="tabpanel">
-        <div class="row" id="Controller"></div>
+        <div class="row" id="ControllerRow"></div>
       </div>
       <div class="tab-pane fade" id="Sentinel" role="tabpanel">
-        <div class="row" id="Sentinel"></div>
+        <div class="row" id="SentinelRow"></div>
       </div>
     </div>
   </div>
@@ -173,7 +173,7 @@
 
         document.getElementById("All").innerHTML += allTab;
 
-        const roleContainer = document.getElementById(role);
+        const roleContainer = document.getElementById(role + "Row");
         if (roleContainer) {
           roleContainer.innerHTML += roleTabs;
         }
