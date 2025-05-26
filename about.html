@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Adrian | Profile</title>
+    <link rel="website icon" href=img/ICON.jpg type="image/jpeg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .profile-card {
+            max-width: 600px;
+            width: 100%;
+            margin: auto;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+
+        #contacts {
+            max-width: 400px;
+            margin: 1rem auto 0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body id="body" data-bs-theme="light">
+
+
+    <div class="container-fluid py-4 shadow d-flex justify-content-between align-items-center mb-4">
+        <a href="Home.html" class="btn btn-outline-secondary">Home</a>
+        <h1 class="h3 text-center flex-grow-1 m-0">About </h1>
+        <button id="themeBtn" onclick="changeTheme()" class="btn btn-dark">Dark Mode</button>
+    </div>
+
+    <div class="container">
+        <div class="profile-card">
+            <img src="img/profile.jpg" class="profile-pic" />
+            <h2>John Adrian M. De Mesa</h2>
+            <p class="text-muted"> Future Web Developer | DIT 2-1 Student</p>
+            <p>Hi there! My name is Adrian, and I want to use this site as part of my portfolio while I continue to
+                learn more about web building. This is
+                where I work out.
+                activities, projects, and experiments here. I'm eager to keep becoming better, but it's all a work in
+                progress!</p>
+
+
+        </div>
+
+        <div class="text-center mt-4">
+            <button id="showBtn1" class="btn btn-outline-secondary btn-sm" onclick="showContacts()"
+                style="display: inline-block;">
+                Show Contacts
+            </button>
+            <button id="hideBtn1" class="btn btn-outline-secondary btn-sm" onclick="hideContacts()"
+                style="display: none;">
+                Hide Contacts
+            </button>
+        </div>
+
+        <div id="contacts" class="card card-body text-center mt-3">
+            <h2>Contacts</h2>
+            <h5>Email:</h5>
+            <p>johnadriandm@gmail.com</p>
+            <h5>Phone Number:</h5>
+            <p>09637843164</p>
+            <h5>GitHub:</h5>
+            <a href="https://github.com/adriandm26">adriandm26</a>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let mode = "light";
+
+        function changeTheme() {
+            const body = document.getElementById("body");
+            const colorBtn = document.getElementById("themeBtn");
+            mode = mode === "light" ? "dark" : "light";
+            colorBtn.innerHTML = mode === "dark" ? "Light Mode" : "Dark Mode";
+            colorBtn.className = "btn " + (mode === "dark" ? "btn-light" : "btn-dark");
+            body.setAttribute("data-bs-theme", mode);
+        }
+
+        function showContacts() {
+            document.getElementById("contacts").style.display = "block";
+            document.getElementById("hideBtn1").style.display = "inline-block";
+            document.getElementById("showBtn1").style.display = "none";
+        }
+
+        function hideContacts() {
+            document.getElementById("contacts").style.display = "none";
+            document.getElementById("hideBtn1").style.display = "none";
+            document.getElementById("showBtn1").style.display = "inline-block";
+        }
+
+
+    </script>
+</body>
+
+</html>
