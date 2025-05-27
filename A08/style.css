@@ -31,11 +31,12 @@
 .scene11 {
 	position: relative;
 	background-position: center;
-	background-size: cover;
+	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	z-index: 600;
 	height: auto;
+	background-color: #111;
 }
 
 .trailer-container {
